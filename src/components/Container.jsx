@@ -6,6 +6,7 @@ import VideoComponent from "./VideoComponent";
 import "../styles/container.css";
 import { getLocalStream } from "../helpers/permissions";
 import { Spinner } from "./icons/Spinner";
+import { MeetIcon } from "./icons/Meet";
 
 function Container(props) {
   const [inLoading, setInLoading] = useState(false);
@@ -32,7 +33,7 @@ function Container(props) {
     <div className="container">
       <div className="callContainer">
         <h3>
-          Meeting ID: <b className="or">{props.meetingId}</b>
+          <MeetIcon /> ID: <b className="or">{props.meetingId}</b>
         </h3>
         {joined ? (
           <div className="participants">
@@ -41,6 +42,9 @@ function Container(props) {
                 className={index === 0 ? "secondParticipant" : "firstParticipant"}
                 key={"Participant" + index}
               >
+                <div className="partName">
+                  {index === 0 ? "A" : "B"}
+                </div>
                 <VideoComponent participantId={participantId} />
               </div>
             ))}

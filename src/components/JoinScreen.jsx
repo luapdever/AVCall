@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/joinScreen.css";
+import { MeetIcon } from "./icons/Meet";
 import { Spinner } from "./icons/Spinner";
 
 function JoinScreen({ getMeetingAndToken }) {
@@ -13,6 +14,11 @@ function JoinScreen({ getMeetingAndToken }) {
     <div className="container">
       <section className="joinScreen">
         <form action="" onSubmit={handleClick}>
+          <div className="appName">
+            <h2>
+              <MeetIcon /> AV CALL
+            </h2>
+          </div>
           <div>
             <input
               type="text"

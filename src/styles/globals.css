@@ -20,6 +20,10 @@ b.or {
   color: orange;
 }
 
+.appName h2 {
+  color: orange;
+}
+
 /* Buttons */
 
 button, .button {
@@ -84,4 +88,11 @@ main {
 
 .rotateIt {
   animation: rotateEl 1s infinite cubic-bezier(.11,1.6,.66,0);
+}
+
+@media screen and (max-width: 993px) {
+  .container {
+    width: 90%;
+    height: 90%;
+  }
 }
