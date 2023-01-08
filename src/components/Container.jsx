@@ -38,7 +38,7 @@ function Container(props) {
           <div className="participants">
             {[...participants.keys()].map((participantId, index) => (
               <div
-                className={index === 0 ? "firstParticipant" : ""}
+                className={index === 0 ? "firstParticipant" : "secondParticipant"}
                 key={"Participant" + index}
               >
                 <VideoComponent participantId={participantId} />
