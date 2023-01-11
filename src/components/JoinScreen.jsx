@@ -26,6 +26,7 @@ function JoinScreen({ getMeetingAndToken }) {
               onChange={(e) => {
                 setMeetingId(e.target.value);
               }}
+              required
             />
           </div>
           <button type="submit" disabled={inLoading}>

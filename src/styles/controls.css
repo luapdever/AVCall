@@ -29,3 +29,6 @@
 .controls>div.cam {
     background-color: orangered;
 }
+.controls>div.disabled {
+    background-color: gray;
+}
