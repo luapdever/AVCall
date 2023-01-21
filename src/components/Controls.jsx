@@ -1,14 +1,14 @@
 import { useMeeting, useParticipant } from "@videosdk.live/react-sdk";
 import "../styles/controls.css";
-import { CamOff, CamOn, LeaveIt, MicOff, MicOn } from "./icons/controls";
+import { /* CamOff, CamOn ,*/ LeaveIt, MicOff, MicOn } from "./icons/controls";
 import { Spinner } from "./icons/Spinner";
 
 function Controls(props) {
   const {
     leave,
     toggleMic,
-    toggleWebcam,
-    localWebcamOn,
+    // toggleWebcam,
+    // localWebcamOn,
     localMicOn,
     localParticipant,
   } = useMeeting();
@@ -38,7 +38,7 @@ function Controls(props) {
           <Spinner className={"rotateIt"} />
         )}
       </div>
-      <div
+      {/* <div
         className={"cam" + (localWebcamOn ? "" : " disabled")}
         onClick={isLocal != null ? toggleWebcam : () => {}}
       >
@@ -51,7 +51,7 @@ function Controls(props) {
         ) : (
           <Spinner className={"rotateIt"} />
         )}
-      </div>
+      </div> */}
     </section>
   );
 }
