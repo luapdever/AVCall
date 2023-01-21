@@ -1,27 +1,21 @@
 import { useParticipant } from "@videosdk.live/react-sdk";
-import React, { useEffect, /* useMemo ,*/ useRef } from "react";
-// import ReactPlayer from "react-player";
+import React, { useEffect, useMemo, useRef } from "react";
+import ReactPlayer from "react-player";
 import '../styles/videos.css'
 
 function VideoComponent(props) {
     const micRef = useRef(null);
-    const { 
-      // webcamStream, 
-      micStream, 
-      // webcamOn, 
-      micOn, 
-      isLocal 
-    } = useParticipant(
+    const { webcamStream, micStream, webcamOn, micOn, isLocal } = useParticipant(
       props.participantId
     );
   
-    // const videoStream = useMemo(() => {
-    //   if (webcamOn && webcamStream) {
-    //     const mediaStream = new MediaStream();
-    //     mediaStream.addTrack(webcamStream.track);
-    //     return mediaStream;
-    //   }
-    // }, [webcamStream, webcamOn]);
+    const videoStream = useMemo(() => {
+      if (webcamOn && webcamStream) {
+        const mediaStream = new MediaStream();
+        mediaStream.addTrack(webcamStream.track);
+        return mediaStream;
+      }
+    }, [webcamStream, webcamOn]);
   
     useEffect(() => {
       if (micRef.current) {
@@ -44,7 +38,7 @@ function VideoComponent(props) {
     return (
       <React.Fragment key={props.participantId}>
         {micOn && micRef && <audio ref={micRef} autoPlay muted={isLocal} />}
-        {/* {webcamOn && (
+        {webcamOn && (
           <ReactPlayer
             playsinline // very very imp prop
             pip={false}
@@ -60,7 +54,7 @@ function VideoComponent(props) {
               console.log(err, "participant video error");
             }}
           />
-        )} */}
+        )}
       </React.Fragment>
     );
 }
